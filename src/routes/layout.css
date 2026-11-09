@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hand: 'Gaegu', cursive, sans-serif;
+  --color-haven-yellow: #FDB813;
+  --color-haven-gold: #F59E0B;
+  --color-haven-orange: #FF8A00;
+  --color-haven-coral: #FF5722;
+  --color-haven-green: #5B8A1C;
+  --color-haven-green-light: #76A628;
+  --color-haven-cream: #FFFDF7;
+  --color-haven-parchment: #FEF7E6;
+  --color-haven-brown: #2B1D0C;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Warm Hack Club Haven Sunny Backdrop */
+.haven-bg-gradient {
+  background: radial-gradient(circle at 50% 20%, #FFE27A 0%, #FFB300 45%, #F57C00 85%, #E65100 100%);
+  background-attachment: fixed;
+}
+
+/* Haven Tactile Card */
+.haven-card {
+  background: #FFFDF7;
+  border: 3.5px solid #2B1D0C;
+  box-shadow: 0 8px 0 #2B1D0C;
+  border-radius: 1.5rem;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+
+.haven-card-subtle {
+  background: #FFFDF7;
+  border: 2px solid #543B1D;
+  box-shadow: 0 4px 0 #543B1D;
+  border-radius: 1rem;
+}
+
+/* Haven 3D Tactile Buttons (Apple touch target 44pt compliant) */
+.haven-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  border: 2.5px solid #2B1D0C;
+  box-shadow: 0 4px 0 #2B1D0C;
+  transition: all 0.1s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.haven-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #2B1D0C;
+}
+
+.haven-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #2B1D0C;
+}
+
+.haven-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 0 #2B1D0C;
+}
+
+/* Color Variants */
+.haven-btn-orange {
+  background-color: #FF6B35;
+  color: #FFFFFF;
+}
+
+.haven-btn-orange:hover {
+  background-color: #FA5818;
+}
+
+.haven-btn-yellow {
+  background-color: #FFC72C;
+  color: #2B1D0C;
+}
+
+.haven-btn-yellow:hover {
+  background-color: #FFBE1A;
+}
+
+.haven-btn-green {
+  background-color: #65A30D;
+  color: #FFFFFF;
+}
+
+.haven-btn-green:hover {
+  background-color: #558B0A;
+}
+
+.haven-btn-white {
+  background-color: #FFFFFF;
+  color: #2B1D0C;
+}
+
+.haven-btn-white:hover {
+  background-color: #FFF7ED;
+}
+
+.haven-btn-red {
+  background-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.haven-btn-red:hover {
+  background-color: #B91C1C;
+}
+
+/* Ribbon Banners (matching image banners like 'Nov 14-15' and 'Sign up!') */
+.ribbon-notch-left {
+  clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 15px 100%, 0% 50%);
+}
+
+.ribbon-notch-right {
+  clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%);
+}
+
+.ribbon-swallowtail {
+  clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%);
+}
+
+/* Stamp Animation */
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(2.5) rotate(-15deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-4deg);
+  }
+  80% {
+    transform: scale(1.05) rotate(-6deg);
+  }
+  100% {
+    transform: scale(1) rotate(-5deg);
+  }
+}
+
+.animate-stamp {
+  animation: stampIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes gavelStrike {
+  0% { transform: rotate(-35deg); }
+  50% { transform: rotate(15deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-gavel {
+  animation: gavelStrike 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-stamp,
+  .animate-gavel {
+    animation: none !important;
+  }
+}
